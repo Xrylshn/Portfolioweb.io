@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xraylshen T. Balahadia - Developer & Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pastel-pink': '#FFE1E6',
+                        'pastel-blue': '#E1F0FF',
+                        'pastel-purple': '#F0E1FF',
+                        'pastel-green': '#E1FFE6',
+                        'pastel-yellow': '#FFF9E1',
+                        'soft-gray': '#F8F9FA'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+            to { box-shadow: 0 0 30px rgba(168, 85, 247, 0.8); }
+        }
+        .typing {
+            overflow: hidden;
+            border-right: 3px solid #a855f7;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #a855f7; }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #a855f7, #ec4899, #06b6d4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            animation: fillProgress 2s ease-out;
+        }
+        @keyframes fillProgress {
+            from { width: 0%; }
+        }
+        .stagger-animation {
+            animation-delay: calc(var(--stagger) * 0.1s);
+        }
+        
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #0f0f23, #1a1a2e, #16213e);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            overflow: hidden;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .loader-logo {
+            font-size: 6rem;
+            font-weight: 900;
+            font-family: 'Arial Black', sans-serif;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff, #ffff00, #00ff00, #00f5ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: neonGlow 2s ease-in-out infinite, textShift 3s ease infinite;
+            margin-bottom: 2rem;
+            letter-spacing: 0.3em;
+            filter: drop-shadow(0 0 30px rgba(0, 245, 255, 0.8));
+        }
+        
+        @keyframes neonGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 30px rgba(0, 245, 255, 0.8)) drop-shadow(0 0 60px rgba(255, 0, 255, 0.4));
+                transform: scale(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 50px rgba(255, 0, 255, 0.8)) drop-shadow(0 0 80px rgba(0, 245, 255, 0.6));
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes textShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .loader-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #00f5ff;
+            animation: typewriter 2s steps(20) infinite, neonFlicker 1.5s ease-in-out infinite alternate;
+            font-family: 'Arial Black', sans-serif;
+            text-shadow: 0 0 20px rgba(0, 245, 255, 0.8);
+        }
+        
+        @keyframes typewriter {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.7; }
+        }
+        
+        @keyframes neonFlicker {
+            0% { text-shadow: 0 0 20px rgba(0, 245, 255, 0.8), 0 0 40px rgba(0, 245, 255, 0.4); }
+            100% { text-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(255, 0, 255, 0.4); }
+        }
+        
+        /* DNA Helix Loader */
+        .dna-loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+        }
+        
+        .dna-strand {
+            position: absolute;
+            width: 4px;
+            height: 100px;
+            background: linear-gradient(to bottom, #00f5ff, #ff00ff, #ffff00, #00ff00);
+            border-radius: 2px;
+            animation: dnaRotate 2s linear infinite;
+        }
+        
+        .dna-strand:nth-child(1) {
+            left: 20px;
+            animation-delay: 0s;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.8);
+        }
+        
+        .dna-strand:nth-child(2) {
+            right: 20px;
+            animation-delay: 1s;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+        }
+        
+        .dna-base {
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #00f5ff, #ff00ff);
+            left: 20px;
+            border-radius: 2px;
+            animation: dnaBase 2s linear infinite;
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.6);
+        }
+        
+        .dna-base:nth-child(3) { top: 10px; animation-delay: 0s; }
+        .dna-base:nth-child(4) { top: 30px; animation-delay: 0.5s; }
+        .dna-base:nth-child(5) { top: 50px; animation-delay: 1s; }
+        .dna-base:nth-child(6) { top: 70px; animation-delay: 1.5s; }
+        
+        @keyframes dnaRotate {
+            0% { transform: rotateY(0deg) rotateX(0deg); }
+            25% { transform: rotateY(90deg) rotateX(90deg); }
+            50% { transform: rotateY(180deg) rotateX(180deg); }
+            75% { transform: rotateY(270deg) rotateX(270deg); }
+            100% { transform: rotateY(360deg) rotateX(360deg); }
+        }
+        
+        @keyframes dnaBase {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scaleX(1) rotateZ(0deg);
+                background: linear-gradient(90deg, #00f5ff, #ff00ff);
+            }
+            25% { 
+                opacity: 0.7; 
+                transform: scaleX(0.8) rotateZ(90deg);
+                background: linear-gradient(90deg, #ff00ff, #ffff00);
+            }
+            50% { 
+                opacity: 0.5; 
+                transform: scaleX(0.6) rotateZ(180deg);
+                background: linear-gradient(90deg, #ffff00, #00ff00);
+            }
+            75% { 
+                opacity: 0.7; 
+                transform: scaleX(0.8) rotateZ(270deg);
+                background: linear-gradient(90deg, #00ff00, #00f5ff);
+            }
+        }
+        
+        /* Quantum Progress Bar */
+        .quantum-progress {
+            width: 300px;
+            height: 8px;
+            background: rgba(0, 245, 255, 0.1);
+            border-radius: 10px;
+            margin-top: 2rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+        }
+        
+        .quantum-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 245, 255, 0.8), 
+                rgba(255, 0, 255, 0.8), 
+                rgba(255, 255, 0, 0.8), 
+                rgba(0, 255, 0, 0.8),
+                transparent
+            );
+            background-size: 200% 100%;
+            border-radius: 10px;
+            animation: quantumLoad 2.5s ease-out, quantumShimmer 1s ease infinite;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+        }
+        
+        @keyframes quantumLoad {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes quantumShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        /* Particle System */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00f5ff;
+            border-radius: 50%;
+            animation: particleFloat 4s linear infinite;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
+        }
+        
+        .particle:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; background: #00f5ff; }
+        .particle:nth-child(2) { top: 20%; right: 15%; animation-delay: 0.5s; background: #ff00ff; }
+        .particle:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 1s; background: #ffff00; }
+        .particle:nth-child(4) { bottom: 20%; right: 25%; animation-delay: 1.5s; background: #00ff00; }
+        .particle:nth-child(5) { top: 50%; left: 5%; animation-delay: 2s; background: #00f5ff; }
+        .particle:nth-child(6) { top: 60%; right: 10%; animation-delay: 2.5s; background: #ff00ff; }
+        .particle:nth-child(7) { top: 30%; left: 50%; animation-delay: 3s; background: #ffff00; }
+        .particle:nth-child(8) { bottom: 40%; right: 50%; animation-delay: 3.5s; background: #00ff00; }
+        
+        @keyframes particleFloat {
+            0% { 
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100px) translateX(50px) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            width: 20px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #00f5ff, transparent);
+            animation: matrixFall 3s linear infinite;
+            opacity: 0.3;
+        }
+        
+        .matrix-column:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .matrix-column:nth-child(2) { left: 15%; animation-delay: 0.5s; }
+        .matrix-column:nth-child(3) { left: 25%; animation-delay: 1s; }
+        .matrix-column:nth-child(4) { left: 35%; animation-delay: 1.5s; }
+        .matrix-column:nth-child(5) { left: 45%; animation-delay: 2s; }
+        .matrix-column:nth-child(6) { left: 55%; animation-delay: 2.5s; }
+        .matrix-column:nth-child(7) { left: 65%; animation-delay: 0.3s; }
+        .matrix-column:nth-child(8) { left: 75%; animation-delay: 0.8s; }
+        .matrix-column:nth-child(9) { left: 85%; animation-delay: 1.3s; }
+        .matrix-column:nth-child(10) { left: 95%; animation-delay: 1.8s; }
+        
+        @keyframes matrixFall {
+            0% { top: -100%; opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { top: 100%; opacity: 0; }
+        }
+        
+        /* Navigation transition effect */
+        .nav-transition {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #a855f7, #ec4899);
+            z-index: 8888;
+            transition: left 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        
+        .nav-transition.active {
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-800 via-purple-900 to-slate-900 min-h-screen smooth-scroll">
+    <!-- Page Loader -->
+    <div id="pageLoader" class="page-loader">
+        <!-- Matrix Rain Background -->
+        <div class="matrix-rain">
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+            <div class="matrix-column"></div>
+        </div>
+        
+        <!-- Floating Particles -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <div class="loader-content">
+            <div class="loader-logo">XTB</div>
+            <div class="loader-text">⚡ INITIALIZING SYSTEM ⚡</div>
+            
+            <!-- DNA Helix Loader -->
+            <div class="dna-loader">
+                <div class="dna-strand"></div>
+                <div class="dna-strand"></div>
+                <div class="dna-base"></div>
+                <div class="dna-base"></div>
+                <div class="dna-base"></div>
+                <div class="dna-base"></div>
+            </div>
+            
+            <!-- Quantum Progress Bar -->
+            <div class="quantum-progress">
+                <div class="quantum-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Transition Overlay -->
+    <div id="navTransition" class="nav-transition"></div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-md z-50 shadow-lg border-b border-purple-500/20">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-black text-white gradient-text" style="font-family: 'Arial Black', sans-serif;">XTB</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-purple-400 transition-colors font-bold">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-purple-400 transition-colors font-bold">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-purple-400 transition-colors font-bold">Skills</a>
+                    <a href="#projects" class="text-gray-300 hover:text-purple-400 transition-colors font-bold">Projects</a>
+                    <a href="#contact" class="text-gray-300 hover:text-purple-400 transition-colors font-bold">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-gray-300 hover:text-purple-400 font-bold">Home</a>
+                <a href="#about" class="block py-2 text-gray-300 hover:text-purple-400 font-bold">About</a>
+                <a href="#skills" class="block py-2 text-gray-300 hover:text-purple-400 font-bold">Skills</a>
+                <a href="#projects" class="block py-2 text-gray-300 hover:text-purple-400 font-bold">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:text-purple-400 font-bold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-20 min-h-screen flex items-center relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-20 h-20 bg-pastel-purple rounded-full opacity-20 float" style="animation-delay: 0s;"></div>
+            <div class="absolute top-40 right-20 w-16 h-16 bg-pastel-pink rounded-full opacity-20 float" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-40 left-20 w-24 h-24 bg-pastel-blue rounded-full opacity-20 float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-20 right-10 w-12 h-12 bg-pastel-green rounded-full opacity-20 float" style="animation-delay: 0.5s;"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+            <div class="text-center">
+                <div class="w-32 h-32 bg-gradient-to-br from-pastel-purple to-pastel-pink rounded-full mx-auto mb-8 flex items-center justify-center text-4xl bounce-in pulse-glow">
+                    👨‍💻
+                </div>
+                <h1 class="text-5xl md:text-6xl font-black text-white mb-6 slide-in-left" style="font-family: 'Arial Black', sans-serif;">
+                    <span class="gradient-text">XRAYLSHEN T. BALAHADIA</span>
+                </h1>
+                <div class="text-xl md:text-2xl text-gray-300 mb-8 slide-in-right font-bold">
+                    <span class="typing">Full-Stack Developer & Data Analyst</span>
+                </div>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10 fade-in" style="animation-delay: 1s;">
+                    Passionate about creating efficient solutions and turning data into actionable insights. 
+                    I build scalable applications and analyze complex datasets to drive business decisions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center scale-in" style="animation-delay: 1.5s;">
+                    <a href="#projects" class="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+                
+                <!-- New Stats Section -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-in" style="animation-delay: 2s;">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-2">5+</div>
+                        <div class="text-sm text-gray-300">Years Experience</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-pink-400 mb-2">50+</div>
+                        <div class="text-sm text-gray-300">Projects Completed</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">15+</div>
+                        <div class="text-sm text-gray-300">Technologies</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-green-400 mb-2">98%</div>
+                        <div class="text-sm text-gray-300">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-black text-white mb-4" style="font-family: 'Arial Black', sans-serif;">About Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="slide-in-left">
+                    <div class="bg-gradient-to-br from-pastel-green to-pastel-yellow p-8 rounded-2xl card-hover">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">My Journey</h3>
+                        <p class="text-gray-600 mb-4">
+                            With 5+ years of experience in software development and data analysis, I specialize in creating 
+                            robust applications and extracting meaningful insights from complex datasets.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            I hold a Master's degree in Computer Science and have worked with startups and Fortune 500 companies, 
+                            helping them optimize their processes through technology and data-driven solutions.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            When I'm not coding or analyzing data, you'll find me exploring new technologies, 
+                            contributing to open-source projects, or hiking in nature.
+                        </p>
+                        
+                        <!-- New Education & Certifications -->
+                        <div class="border-t border-gray-200 pt-6">
+                            <h4 class="font-bold text-gray-800 mb-3">🎓 Education & Certifications</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Master's in Computer Science - University of Technology</li>
+                                <li>• AWS Certified Solutions Architect</li>
+                                <li>• Google Data Analytics Professional Certificate</li>
+                                <li>• Certified Scrum Master (CSM)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in-right">
+                    <div class="space-y-6">
+                        <div class="bg-pastel-blue p-6 rounded-xl card-hover stagger-animation" style="--stagger: 1;">
+                            <h4 class="font-bold text-gray-800 mb-2">🎯 Problem Solver</h4>
+                            <p class="text-gray-600">I love tackling complex challenges and finding elegant solutions</p>
+                        </div>
+                        <div class="bg-pastel-pink p-6 rounded-xl card-hover stagger-animation" style="--stagger: 2;">
+                            <h4 class="font-bold text-gray-800 mb-2">📊 Data Enthusiast</h4>
+                            <p class="text-gray-600">Turning raw data into actionable business insights</p>
+                        </div>
+                        <div class="bg-pastel-purple p-6 rounded-xl card-hover stagger-animation" style="--stagger: 3;">
+                            <h4 class="font-bold text-gray-800 mb-2">🚀 Innovation Driven</h4>
+                            <p class="text-gray-600">Always exploring cutting-edge technologies and methodologies</p>
+                        </div>
+                        
+                        <!-- New Achievement Cards -->
+                        <div class="bg-pastel-yellow p-6 rounded-xl card-hover stagger-animation" style="--stagger: 4;">
+                            <h4 class="font-bold text-gray-800 mb-2">🏆 Team Leader</h4>
+                            <p class="text-gray-600">Led cross-functional teams of 8+ developers and analysts</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-pastel-green to-pastel-blue p-6 rounded-xl card-hover stagger-animation" style="--stagger: 5;">
+                            <h4 class="font-bold text-gray-800 mb-2">🌍 Global Impact</h4>
+                            <p class="text-gray-600">Solutions deployed across 15+ countries, serving 100K+ users</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-black text-white mb-4" style="font-family: 'Arial Black', sans-serif;">Skills & Expertise</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white/70 p-8 rounded-2xl shadow-sm fade-in">
+                    <div class="text-3xl mb-4">💻</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Programming</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">JavaScript/TypeScript</span>
+                            <span class="text-purple-500">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-2 rounded-full progress-bar" style="width: 95%"></div>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Python</span>
+                            <span class="text-purple-500">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-2 rounded-full progress-bar" style="width: 90%; animation-delay: 0.2s;"></div>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Java</span>
+                            <span class="text-purple-500">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-2 rounded-full progress-bar" style="width: 85%; animation-delay: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/70 p-8 rounded-2xl shadow-sm fade-in">
+                    <div class="text-3xl mb-4">🌐</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Web Development</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">React/Next.js</span>
+                            <span class="text-purple-500">92%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-blue-400 to-green-400 h-2 rounded-full progress-bar" style="width: 92%"></div>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Node.js</span>
+                            <span class="text-purple-500">88%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-blue-400 to-green-400 h-2 rounded-full progress-bar" style="width: 88%; animation-delay: 0.2s;"></div>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">SQL/NoSQL</span>
+                            <span class="text-purple-500">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-blue-400 to-green-400 h-2 rounded-full progress-bar" style="width: 90%; animation-delay: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/70 p-8 rounded-2xl shadow-sm fade-in">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Data Analysis</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Pandas/NumPy</span>
+                            <span class="text-purple-500">93%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-yellow-400 to-orange-400 h-2 rounded-full progress-bar" style="width: 93%"></div>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Machine Learning</span>
+                            <span class="text-purple-500">87%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-yellow-400 to-orange-400 h-2 rounded-full progress-bar" style="width: 87%; animation-delay: 0.2s;"></div>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Tableau/Power BI</span>
+                            <span class="text-purple-500">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-yellow-400 to-orange-400 h-2 rounded-full progress-bar" style="width: 85%; animation-delay: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- New Experience Timeline -->
+            <div class="mt-20">
+                <div class="text-center mb-12 fade-in">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Professional Experience</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-pastel-purple to-pastel-pink mx-auto"></div>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-400 to-pink-400"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-12">
+                            <div class="flex items-center slide-in-left">
+                                <div class="w-1/2 pr-8 text-right">
+                                    <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                                        <h4 class="font-bold text-gray-800 mb-2">Senior Full-Stack Developer</h4>
+                                        <p class="text-purple-600 mb-2">TechCorp Solutions</p>
+                                        <p class="text-sm text-gray-500 mb-3">2022 - Present</p>
+                                        <p class="text-gray-600">Led development of microservices architecture serving 500K+ users</p>
+                                    </div>
+                                </div>
+                                <div class="w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                                <div class="w-1/2 pl-8"></div>
+                            </div>
+                            
+                            <div class="flex items-center slide-in-right">
+                                <div class="w-1/2 pr-8"></div>
+                                <div class="w-4 h-4 bg-pink-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                                <div class="w-1/2 pl-8">
+                                    <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                                        <h4 class="font-bold text-gray-800 mb-2">Data Analyst & Developer</h4>
+                                        <p class="text-pink-600 mb-2">DataInsights Inc.</p>
+                                        <p class="text-sm text-gray-500 mb-3">2020 - 2022</p>
+                                        <p class="text-gray-600">Built ML models achieving 92% accuracy in predictive analytics</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center slide-in-left">
+                                <div class="w-1/2 pr-8 text-right">
+                                    <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                                        <h4 class="font-bold text-gray-800 mb-2">Junior Software Developer</h4>
+                                        <p class="text-blue-600 mb-2">StartupHub</p>
+                                        <p class="text-sm text-gray-500 mb-3">2019 - 2020</p>
+                                        <p class="text-gray-600">Developed responsive web applications using React and Node.js</p>
+                                    </div>
+                                </div>
+                                <div class="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                                <div class="w-1/2 pl-8"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-black text-white mb-4" style="font-family: 'Arial Black', sans-serif;">Featured Projects</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover scale-in stagger-animation" style="--stagger: 1;">
+                    <div class="bg-gradient-to-br from-pastel-blue to-pastel-purple h-48 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full animate-pulse"></div>
+                        📱
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">E-Commerce Analytics Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Real-time analytics platform for tracking sales, customer behavior, and inventory management with interactive visualizations.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pastel-blue px-3 py-1 rounded-full text-sm text-gray-700">React</span>
+                            <span class="bg-pastel-green px-3 py-1 rounded-full text-sm text-gray-700">Python</span>
+                            <span class="bg-pastel-yellow px-3 py-1 rounded-full text-sm text-gray-700">D3.js</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500">⭐ 4.9/5 Rating</span>
+                            <span class="text-sm text-green-600">✅ Live</span>
+                        </div>
+                        <button class="text-purple-500 hover:text-purple-600 font-medium transition-colors">View Project →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover scale-in stagger-animation" style="--stagger: 2;">
+                    <div class="bg-gradient-to-br from-pastel-green to-pastel-yellow h-48 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                        🤖
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">AI-Powered Task Manager</h3>
+                        <p class="text-gray-600 mb-4">Smart productivity app that uses machine learning to prioritize tasks and predict completion times based on user behavior.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pastel-blue px-3 py-1 rounded-full text-sm text-gray-700">Next.js</span>
+                            <span class="bg-pastel-green px-3 py-1 rounded-full text-sm text-gray-700">TensorFlow</span>
+                            <span class="bg-pastel-pink px-3 py-1 rounded-full text-sm text-gray-700">MongoDB</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500">👥 10K+ Users</span>
+                            <span class="text-sm text-blue-600">🚀 Beta</span>
+                        </div>
+                        <button class="text-purple-500 hover:text-purple-600 font-medium transition-colors">View Project →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover scale-in stagger-animation" style="--stagger: 3;">
+                    <div class="bg-gradient-to-br from-pastel-pink to-pastel-purple h-48 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full animate-pulse" style="animation-delay: 1s;"></div>
+                        📈
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Financial Market Predictor</h3>
+                        <p class="text-gray-600 mb-4">Machine learning model that analyzes market trends and news sentiment to predict stock price movements with 78% accuracy.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pastel-blue px-3 py-1 rounded-full text-sm text-gray-700">Python</span>
+                            <span class="bg-pastel-green px-3 py-1 rounded-full text-sm text-gray-700">Scikit-learn</span>
+                            <span class="bg-pastel-yellow px-3 py-1 rounded-full text-sm text-gray-700">API</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500">📊 78% Accuracy</span>
+                            <span class="text-sm text-orange-600">🔬 Research</span>
+                        </div>
+                        <button class="text-purple-500 hover:text-purple-600 font-medium transition-colors">View Project →</button>
+                    </div>
+                </div>
+                
+                <!-- New Additional Projects -->
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover scale-in stagger-animation" style="--stagger: 4;">
+                    <div class="bg-gradient-to-br from-pastel-yellow to-pastel-green h-48 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full animate-pulse" style="animation-delay: 1.5s;"></div>
+                        🏥
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Healthcare Data Platform</h3>
+                        <p class="text-gray-600 mb-4">HIPAA-compliant platform for analyzing patient data and predicting health outcomes using advanced ML algorithms.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pastel-blue px-3 py-1 rounded-full text-sm text-gray-700">Vue.js</span>
+                            <span class="bg-pastel-green px-3 py-1 rounded-full text-sm text-gray-700">FastAPI</span>
+                            <span class="bg-pastel-pink px-3 py-1 rounded-full text-sm text-gray-700">PostgreSQL</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500">🏥 5 Hospitals</span>
+                            <span class="text-sm text-green-600">✅ Production</span>
+                        </div>
+                        <button class="text-purple-500 hover:text-purple-600 font-medium transition-colors">View Project →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover scale-in stagger-animation" style="--stagger: 5;">
+                    <div class="bg-gradient-to-br from-pastel-purple to-pastel-blue h-48 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full animate-pulse" style="animation-delay: 2s;"></div>
+                        🌍
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Climate Data Visualizer</h3>
+                        <p class="text-gray-600 mb-4">Interactive web application for visualizing global climate data with real-time updates and predictive modeling.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pastel-blue px-3 py-1 rounded-full text-sm text-gray-700">React</span>
+                            <span class="bg-pastel-green px-3 py-1 rounded-full text-sm text-gray-700">Python</span>
+                            <span class="bg-pastel-yellow px-3 py-1 rounded-full text-sm text-gray-700">Mapbox</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500">🌍 Global Data</span>
+                            <span class="text-sm text-blue-600">🔄 Real-time</span>
+                        </div>
+                        <button class="text-purple-500 hover:text-purple-600 font-medium transition-colors">View Project →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover scale-in stagger-animation" style="--stagger: 6;">
+                    <div class="bg-gradient-to-br from-pastel-pink to-pastel-yellow h-48 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full animate-pulse" style="animation-delay: 2.5s;"></div>
+                        🎮
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Gaming Analytics Engine</h3>
+                        <p class="text-gray-600 mb-4">Real-time analytics platform for game developers to track player behavior and optimize game mechanics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pastel-blue px-3 py-1 rounded-full text-sm text-gray-700">Node.js</span>
+                            <span class="bg-pastel-green px-3 py-1 rounded-full text-sm text-gray-700">Redis</span>
+                            <span class="bg-pastel-pink px-3 py-1 rounded-full text-sm text-gray-700">WebSocket</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500">🎮 50+ Games</span>
+                            <span class="text-sm text-purple-600">⚡ Real-time</span>
+                        </div>
+                        <button class="text-purple-500 hover:text-purple-600 font-medium transition-colors">View Project →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-black text-white mb-4" style="font-family: 'Arial Black', sans-serif;">Let's Work Together</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-300">Ready to bring your ideas to life? Let's discuss your next project!</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <div class="bg-white/70 p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Get In Touch</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 card-hover">
+                                <div class="w-12 h-12 bg-pastel-blue rounded-full flex items-center justify-center pulse-glow">
+                                    📧
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Email</p>
+                                    <p class="text-gray-600">xraylshen.balahadia@email.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 card-hover">
+                                <div class="w-12 h-12 bg-pastel-green rounded-full flex items-center justify-center pulse-glow" style="animation-delay: 0.5s;">
+                                    💼
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">LinkedIn</p>
+                                    <p class="text-gray-600">linkedin.com/in/xraylshen-balahadia</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 card-hover">
+                                <div class="w-12 h-12 bg-pastel-purple rounded-full flex items-center justify-center pulse-glow" style="animation-delay: 1s;">
+                                    🐙
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">GitHub</p>
+                                    <p class="text-gray-600">github.com/xraylshen-balahadia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <form class="bg-white/70 p-8 rounded-2xl space-y-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-purple-400 focus:outline-none transition-colors" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-purple-400 focus:outline-none transition-colors" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-purple-400 focus:outline-none transition-colors" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 rounded-lg font-medium transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2024 XRAYLSHEN T. BALAHADIA. Built with passion and lots of coffee ☕</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page Loader Functionality
+        const pageLoader = document.getElementById('pageLoader');
+        const navTransition = document.getElementById('navTransition');
+        
+        // Show loader on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                pageLoader.classList.add('hidden');
+            }, 2500); // Show loader for 2.5 seconds
+        });
+        
+        // Navigation transition effect
+        function navigateWithTransition(targetId) {
+            navTransition.classList.add('active');
+            
+            setTimeout(() => {
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                setTimeout(() => {
+                    navTransition.classList.remove('active');
+                }, 300);
+            }, 300);
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Enhanced navigation with transition effects
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                // Use transition effect for navigation
+                navigateWithTransition(targetId);
+            });
+        });
+
+        // Enhanced animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Add special effects for certain elements
+                    if (entry.target.classList.contains('scale-in')) {
+                        setTimeout(() => {
+                            entry.target.style.transform = 'scale(1.02)';
+                            setTimeout(() => {
+                                entry.target.style.transform = 'scale(1)';
+                            }, 200);
+                        }, 300);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Typing animation restart on scroll
+        const typingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const typingElement = entry.target.querySelector('.typing');
+                    if (typingElement) {
+                        typingElement.style.animation = 'none';
+                        setTimeout(() => {
+                            typingElement.style.animation = 'typing 3s steps(40, end), blink-caret 0.75s step-end infinite';
+                        }, 100);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.slide-in-right').forEach(el => {
+            typingObserver.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! This is a demo form - in a real portfolio, this would send an email.');
+        });
+
+        // Project buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('View Project')) {
+                button.addEventListener('click', function() {
+                    alert('This would open the project details or live demo in a real portfolio!');
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97fe6fa3d0d7ba02',t:'MTc1ODAwNTQ5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
